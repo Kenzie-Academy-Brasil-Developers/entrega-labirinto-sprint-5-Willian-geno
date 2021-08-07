@@ -66,7 +66,7 @@ function criateMaze(maps){
     createplayer();
 }
 
-//createplayer
+//create player
 function createplayer(){
     const matchresident = document.querySelector('.match');
     let player = document.createElement('div');
@@ -74,7 +74,7 @@ function createplayer(){
     matchresident.appendChild(player);
 }
 
-//movementPlyer
+//movement Plyer
 
 document.addEventListener('keydown', (event) =>{
     const player = document.querySelector('.player');
@@ -82,6 +82,7 @@ document.addEventListener('keydown', (event) =>{
     if(kayName === 'ArrowRight'){
         const blokNext =  player.parentElement.nextElementSibling;
         if (blokNext.classList[0] !== 'blockMaze'){
+            player.classList.remove('playerReverse');
             blokNext.appendChild(player);
         }
         victoryCheck()
@@ -89,6 +90,7 @@ document.addEventListener('keydown', (event) =>{
     if(kayName === 'ArrowLeft'){
         const blockPrevios =  player.parentElement.previousSibling;
         if (blockPrevios.classList[0] !== 'blockMaze'){
+            player.classList.add('playerReverse');
             blockPrevios.appendChild(player);
         }     
         victoryCheck() 
@@ -114,7 +116,7 @@ document.addEventListener('keydown', (event) =>{
     }
 })
 
-//verificação de vitoria
+//victory Check
 function victoryCheck(){
     const player = document.querySelector('.player');
     const blockVictory = document.querySelector('.arrival');
